@@ -36,3 +36,18 @@ const timeoutId = setTimeout(function() {
 
 clearTimeout(timeoutId)
 
+// В данном задании не нужно использовать цикл, будет достаточно setInterval, в котором при каждом повторении в консоль будет выводиться число, затем увеличиваться на 1 до тех пор, пока оно не будет равно конечному значению. Ниже верный вариант решения:
+
+function logNumbers(begin, end) {
+  let current = begin;
+
+  let timerId = setInterval(function() {
+    console.log(current);
+    if (current == end) {
+      clearInterval(timerId);
+    }
+    current++;
+  }, 1000);
+}
+
+logNumbers(5, 15);
